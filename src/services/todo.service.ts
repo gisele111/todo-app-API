@@ -15,15 +15,19 @@ const createToDo = async (title:string,description:string,iscompleted:boolean) =
 }
 
 
-export {
-    createToDo
-};
 
- /*const getAllToDoList = async()=> {
+ const getAll = async()=> {
     const allList = await prisma.todo.findMany();
     return allList;
  }
- const getSingleToDo = async(singleId: number)=>{
+
+ export {
+    createToDo,
+    getAll
+ };
+
+
+ /*const getSingleToDo = async(singleId: number)=>{
     const singleToDo = await prisma.todo.findUnique({
         where: {id: singleid}
     });
