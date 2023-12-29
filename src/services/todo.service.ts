@@ -21,9 +21,17 @@ const createToDo = async (title:string,description:string,iscompleted:boolean) =
     return allList;
  }
 
+ const getSingletask = async(singleId:number)=>{
+   const singletask = await prisma.todo.findUnique({
+       where:{id:singleId}
+   });
+   return singletask
+   }
+
  export {
     createToDo,
-    getAll
+    getAll,
+    getSingletask
  };
 
 
