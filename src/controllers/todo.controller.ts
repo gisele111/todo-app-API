@@ -20,8 +20,8 @@ const getAllData = async(req:Request,res:Response)=>{
 const single = async(req:Request,res:Response)=>{
     const {id} = req.params;
     const intId = parseInt(id);
-    const blog = await getSingletask(intId);
-    res.status(200).json({blog:blog});
+    const todo = await getSingletask(intId);
+    res.status(200).json({todo:todo});
 }
 
 
