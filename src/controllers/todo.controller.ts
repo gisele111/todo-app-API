@@ -1,5 +1,5 @@
 import { Request,Response } from 'express';
-import {createToDo,getAll} from '../services/todo.service';
+import {createToDo,getAll,getSingletask} from '../services/todo.service';
 
 const createController = async (req:Request,res:Response)=>{
     const {title,description,iscompleted} = req.body;
@@ -17,9 +17,16 @@ const getAllData = async(req:Request,res:Response)=>{
     res.status(200).json({data:allData});
 }
 
+const single = async(req:Request,res:Response)=>{
+    const {id} = req.params;
+    const intId = parseInt(id);
+    const blog = await getSingletask(intId);
+    res.status(200).json({blog:blog});
+}
 
 
 export {
     createController,
-    getAllData
+    getAllData,
+    single
 }
